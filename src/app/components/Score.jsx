@@ -5,7 +5,7 @@ class Score extends Component {
     super(props);
 
     this.state = {
-      score: 0,
+      score: "",
       currentPlayer: 0,
     };
 
@@ -16,52 +16,52 @@ class Score extends Component {
   handleChange(e) {
     this.setState({ score: e.target.value });
   }
+  
+  checkScore(score, player) {
+    console.log(player.score)
+    const winningScore = 10000;
+    const valueOfFirstScore = 500;
+    let newScore = +player.score + +score
+    if (newScore < valueOfFirstScore) {
+      alert("must roll at least 500 to begin scoring")
+      return 0;
+    } else {
+      return newScore >= winningScore ? alert(player.name + " scored: " + newScore +  " and wins the game!!!") : newScore;
+    }
+  }
 
   updateCurrentPlayer(player) {
     let updatedPlayer = {
       id: player.id,
       name: player.name,
-      score: +player.score + +this.state.score,
+      score: this.checkScore(+this.state.score, player)
     };
     console.log(updatedPlayer);
     return updatedPlayer;
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
     const data = this.updateCurrentPlayer(this.props.players[this.props.nextPlayerRoll - 1]);
-    console.log(data);
-    console.log(this.props.players.length);
     
     this.props.onSubmit(data, this.props.players.length);
 
-    // this.setState(({
-    //   currentPlayer: this.state.currentPlayer ++,
-    // }));
-    console.log(this.props.nextPlayerRoll);  
-  }
-
-  currentPlayer() {
-    const { players, nextPlayerRoll } = this.props;
-
-    let current = players.filter((player) => nextPlayerRoll === player.id);
-
-    return current; 
+    this.setState(({
+      score: "",
+    }));
   }
 
   render() {
     const { players, nextPlayerRoll } = this.props;
-    const player = this.currentPlayer();
-    console.log(nextPlayerRoll);
 
-    {if (player){
+    {if (players){
         return (
           <Fragment>
-            <h1>{this.state.score}</h1>
             <form onSubmit={this.handleSubmit}>
               <label>
                 Enter Score for: {players[nextPlayerRoll - 1].name}
-                <input onChange={(e) => this.handleChange(e)} />
+                <input type="number" onChange={(e) => this.handleChange(e)} value={this.state.score}/>
               </label>
               <button type="submit">Submit Score</button>
             </form>

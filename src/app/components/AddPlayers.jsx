@@ -30,7 +30,6 @@ class AddPlayers extends Component {
       if (players.length > 1)
         return (
           <Fragment>
-            <h1>{players[0].id}</h1>
             <form onSubmit={this.handleSubmit}>
               <label>
                 Enter player name:
