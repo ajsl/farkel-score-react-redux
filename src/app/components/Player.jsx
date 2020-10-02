@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from "react";
 
 class Player extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { player } = this.props;
@@ -14,7 +11,7 @@ class Player extends Component {
       return (
         <Fragment>
           <div className="col-lg">
-            <div className="card">
+            <div className="card text-center">
               <h4>{player.name}</h4>
             </div>
             <div className="card-body">Score: {player.score}</div>

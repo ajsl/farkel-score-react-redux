@@ -26,68 +26,44 @@ class AddPlayers extends Component {
 
   render() {
     const { players } = this.props;
-    {
-      if (players.length > 1)
-        return (
-          <Fragment>
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Enter player name:
-                <input
-                  value={this.state.value}
-                  type="text"
-                  onChange={this.handleChange}
-                />
-              </label>
-              <button type="submit">Add Player</button>
-            </form>
-          </Fragment>
-        );
-        else {
-          return (
-            <Fragment>
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Enter player name:
-                <input
-                  value={this.state.value}
-                  type="text"
-                  onChange={this.handleChange}
-                />
-              </label>
-              <button type="submit">Add Player</button>
-            </form>
-          </Fragment>
-          )
-    }
+
+    if (players.length > 1)
+      return (
+        <Fragment>
+          <form className="form-group mt-5" onSubmit={this.handleSubmit}>
+            <label>
+              Enter player name:
+              <input
+                className="form-control"
+                value={this.state.value}
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <button type="submit">Add Player</button>
+          </form>
+        </Fragment>
+      );
+    else {
+      return (
+        <Fragment>
+          <h2>Please add players</h2>
+          <form className="form-group mt-5" onSubmit={this.handleSubmit}>
+            <label>
+              Enter player name:
+              <input
+                className="form-control"
+                value={this.state.value}
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <button type="submit">Add Player</button>
+          </form>
+        </Fragment>
+      );
     }
   }
 }
-
-// const onChange = (e) => setPlayerName(e.target.value);
-
-//    return (
-//      <Fragment>
-//        <form
-//          onSubmit={(e) => {
-//            e.preventDefault();
-//            if (!playerName.trim()) {
-//                return;
-//            }
-//            dispatch({type: 'addPlayer',}, playerName);
-//            setPlayerName("");
-//          }}
-//        >
-//          <label>Enter player name: </label>
-//          <input value={playerName} type="text" onChange={onChange} />
-//          <button type="submit">Add Player</button>
-//        </form>
-//        <div>
-//          <h2>Score: </h2>
-//        </div>
-//      </Fragment>
-//    );
-
-//  export default connect(null, mapDispatch)(AddPlayer);
 
 export default AddPlayers;
