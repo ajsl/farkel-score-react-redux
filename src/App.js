@@ -16,7 +16,7 @@ function App() {
         <Route path="/rules">
           <HowToPlay />
         </Route> 
-        <Route path="/">
+        <Route path="/home">
           <section className="container">
             <AddPlayers />
             <Score />

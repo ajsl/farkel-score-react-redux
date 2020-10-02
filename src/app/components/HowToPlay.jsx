@@ -16,28 +16,28 @@ export const HowToPlay = () => {
               <table className="table">
                 <tbody>
                   <tr>
-                    <p>Single 1 = 100</p>
+                    <td>Single 1 = 100</td>
                   </tr>
                   <tr>
-                    <p>Single 5 = 50</p>
+                    <td>Single 5 = 50</td>
                   </tr>
                   <tr>
-                    <p>Three 1's = 300</p>
+                    <td>Three 1's = 300</td>
                   </tr>
                   <tr>
-                    <p>Three 2's = 200</p>
+                    <td>Three 2's = 200</td>
                   </tr>
                   <tr>
-                    <p>Three 3's = 300</p>
+                    <td>Three 3's = 300</td>
                   </tr>
                   <tr>
-                    <p>Three 4's = 400</p>
+                    <td>Three 4's = 400</td>
                   </tr>
                   <tr>
-                    <p>Three 5's = 500</p>
+                    <td>Three 5's = 500</td>
                   </tr>
                   <tr>
-                    <p>Three 6's = 600</p>
+                    <td>Three 6's = 600</td>
                   </tr>
                 </tbody>
               </table>
@@ -46,25 +46,25 @@ export const HowToPlay = () => {
               <table className="table">
                 <tbody>
                   <tr>
-                    <p>Four of any number = 1,000</p>
+                    <td>Four of any number = 1,000</td>
                   </tr>
                   <tr>
-                    <p>Five of any number = 2,000</p>
+                    <td>Five of any number = 2,000</td>
                   </tr>
                   <tr>
-                    <p>Six of any number = 3,000</p>
+                    <td>Six of any number = 3,000</td>
                   </tr>
                   <tr>
-                    <p>1-6 straight = 1,500</p>
+                    <td>1-6 straight = 1,500</td>
                   </tr>
                   <tr>
-                    <p>Three Pairs = 1,500</p>
+                    <td>Three Pairs = 1,500</td>
                   </tr>
                   <tr>
-                    <p>Four of any number with pair = 1,500</p>
+                    <td>Four of any number with pair = 1,500</td>
                   </tr>
                   <tr>
-                    <p>Two Triplets = 2,500</p>
+                    <td>Two Triplets = 2,500</td>
                   </tr>
                 </tbody>
               </table>
