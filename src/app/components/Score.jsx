@@ -4,6 +4,7 @@ import { Prompt } from "react-router-dom";
 
 class Score extends Component {
   constructor(props) {
+    super(props);
 
     this.state = {
       score: "",
