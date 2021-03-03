@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 
+import { Prompt } from "react-router-dom";
+
 class Score extends Component {
   constructor(props) {
-    super(props);
 
     this.state = {
       score: "",
@@ -14,7 +15,7 @@ class Score extends Component {
   }
 
   handleChange(e) {
-    this.setState({ score: e.target.value });
+    this.setState({ score: e.target.value});
   }
 
   checkScore(score, player) {
@@ -52,6 +53,7 @@ class Score extends Component {
 
     this.setState({
       score: "",
+      secondRoll: false,
     });
   }
 
@@ -61,6 +63,10 @@ class Score extends Component {
     if (players.length >= 1) {
       return (
         <Fragment>
+          <Prompt
+            when={players.length >= 1}
+            message={(location) => "Are you sure you want to leave?"}
+          />
           <form className="form-group" onSubmit={this.handleSubmit}>
             <label>
               Enter Score for: {players[nextPlayerRoll - 1].name}
@@ -72,6 +78,17 @@ class Score extends Component {
               />
             </label>
             <button type="submit">Submit Score</button>
+            {/* <div className="d-flex">
+              <label>
+                Tick for second roll
+                <input
+                  className="form-control ml-4 "
+                  value={this.state.secondRoll}
+                  type="checkbox"
+                  onClick={this.secondRollClicked()}
+                ></input>
+              </label>
+            </div> */}
           </form>
         </Fragment>
       );

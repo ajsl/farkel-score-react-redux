@@ -6,6 +6,7 @@ class AddPlayers extends Component {
 
     this.state = {
       value: "",
+      secondRoll: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -41,6 +42,7 @@ class AddPlayers extends Component {
               />
             </label>
             <button type="submit">Add Player</button>
+            
           </form>
         </Fragment>
       );
@@ -59,6 +61,7 @@ class AddPlayers extends Component {
               />
             </label>
             <button type="submit">Add Player</button>
+            
           </form>
         </Fragment>
       );
