@@ -1,5 +1,11 @@
-const addPlayer = (state, { id, name, score }) => {
-  const player = { id: id, name: name, score: score };
+const addPlayer = (state, { id, name, score, lastRoll }) => {
+  const player = {
+    id: id,
+    name: name,
+    score: score,
+    lastRoll: lastRoll,
+    scoreHistory: [],
+  };
   return {
     ...state,
     players: state.players.concat(player),
@@ -12,24 +18,24 @@ const addScore = (state, { player, numberOfPlayers }) => {
   return {
     ...state,
 
-    players: state.players.map(person => person.id === playerId ? 
-      {
-        ...person, score: player.score }
-
-        :
-
-        {...person}
-        // ? {
-        //     ...player,
-        //     score: player.score,
-        //   }
-        // : { ...player }
+    players: state.players.map(
+      (person) =>
+        person.id === playerId
+          ? {
+              ...person,
+              score: player.score,
+              scoreHistory: [...person.scoreHistory, player.lastRoll]
+            }
+          : { ...person }
+      // ? {
+      //     ...player,
+      //     score: player.score,
+      //   }
+      // : { ...player }
     ),
-    nextPlayerRoll: numberOfPlayers === playerId ? 1 : playerId + 1
+    nextPlayerRoll: numberOfPlayers === playerId ? 1 : playerId + 1,
   };
 };
-
-
 
 const reducer = (state, action) => {
   switch (action.type) {

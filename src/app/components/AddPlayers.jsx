@@ -6,7 +6,6 @@ class AddPlayers extends Component {
 
     this.state = {
       value: "",
-      secondRoll: false
     };
 
     this.handleChange = this.handleChange.bind(this);

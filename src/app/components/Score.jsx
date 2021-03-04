@@ -8,6 +8,7 @@ class Score extends Component {
 
     this.state = {
       score: "",
+      lastRoll: 0,
       currentPlayer: 0,
     };
 
@@ -16,7 +17,7 @@ class Score extends Component {
   }
 
   handleChange(e) {
-    this.setState({ score: e.target.value});
+    this.setState({ score: e.target.value, lastRoll: e.target.value });
   }
 
   checkScore(score, player) {
@@ -39,6 +40,7 @@ class Score extends Component {
       id: player.id,
       name: player.name,
       score: this.checkScore(+this.state.score, player),
+      lastRoll: this.state.lastRoll
     };
     console.log(updatedPlayer);
     return updatedPlayer;
@@ -54,7 +56,6 @@ class Score extends Component {
 
     this.setState({
       score: "",
-      secondRoll: false,
     });
   }
 
