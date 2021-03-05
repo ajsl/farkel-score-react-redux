@@ -65,10 +65,10 @@ class Score extends Component {
     if (players.length >= 1) {
       return (
         <Fragment>
-          <Prompt
+          {/* <Prompt
             when={players.length >= 1}
             message={(location) => "Are you sure you want to leave?"}
-          />
+          /> */}
           <form className="form-group" onSubmit={this.handleSubmit}>
             <label>
               Enter Score for: {players[nextPlayerRoll - 1].name}

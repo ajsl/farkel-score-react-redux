@@ -1,20 +1,19 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Prompt,
+  withRouter,
 } from "react-router-dom";
-import AddPlayers from "./app/containers/AddPlayers";
-import "./App.css";
-import PlayerList from "./app/containers/PlayerList";
-import Score from "./app/containers/Score";
+import "./App.scss";
+
 import history from "./history";
 import { NavBar } from "./app/components/NavBar";
 import { HowToPlay } from "./app/components/HowToPlay";
-import { render } from "@testing-library/react";
+import { Main } from "./app/components/Main";
 
-function App() {
+const App = () => {
   const blockRouting = () => {
     history.block(() => {
       return "Are you sure";
@@ -23,20 +22,14 @@ function App() {
   return (
     <Fragment>
       <NavBar />
-      <Router>
         <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
           <Route path="/rules">
             <HowToPlay />
           </Route>
-          <Route path="/" component={BlockedNav}>
-            <section className="container">
-              <AddPlayers />
-              <Score />
-              <PlayerList />
-            </section>
-          </Route>
         </Switch>
-      </Router>
     </Fragment>
   );
 }
@@ -82,4 +75,4 @@ class BlockedNav extends Comment {
 //   )
 // }
 
-export default App;
+export default withRouter(App);
