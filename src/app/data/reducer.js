@@ -24,7 +24,7 @@ const addScore = (state, { player, numberOfPlayers }) => {
           ? {
               ...person,
               score: player.score,
-              scoreHistory: [...person.scoreHistory, player.lastRoll]
+              scoreHistory: [...person.scoreHistory, player.score >= 500 ? player.lastRoll : 0]
             }
           : { ...person }
       // ? {

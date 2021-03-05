@@ -40,7 +40,7 @@ class Score extends Component {
       id: player.id,
       name: player.name,
       score: this.checkScore(+this.state.score, player),
-      lastRoll: this.state.lastRoll
+      lastRoll: this.state.lastRoll,
     };
     console.log(updatedPlayer);
     return updatedPlayer;
@@ -80,17 +80,6 @@ class Score extends Component {
               />
             </label>
             <button type="submit">Submit Score</button>
-            {/* <div className="d-flex">
-              <label>
-                Tick for second roll
-                <input
-                  className="form-control ml-4 "
-                  value={this.state.secondRoll}
-                  type="checkbox"
-                  onClick={this.secondRollClicked()}
-                ></input>
-              </label>
-            </div> */}
           </form>
         </Fragment>
       );
