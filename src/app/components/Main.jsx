@@ -5,7 +5,7 @@ import Score from "../containers/Score";
 
 export const Main = () => {
   return (
-    <section className="container">
+    <section className="container main-block">
       <AddPlayers />
       <Score />
       <PlayerList />

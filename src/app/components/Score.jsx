@@ -79,7 +79,7 @@ class Score extends Component {
                 value={this.state.score}
               />
             </label>
-            <button type="submit">Submit Score</button>
+            <button className="button-main" type="submit">Submit Score</button>
           </form>
         </Fragment>
       );

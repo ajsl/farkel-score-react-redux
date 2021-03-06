@@ -5,7 +5,7 @@ export const HowToPlay = () => {
     <Fragment>
       <div className="container">
         <header className="text-center m-5">
-          <h1>Farkel Rules</h1>
+          <h1>Dice Rules</h1>
         </header>
         <section className="">
           <strong>Object</strong>

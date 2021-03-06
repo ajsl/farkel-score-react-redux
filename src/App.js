@@ -20,7 +20,7 @@ const App = () => {
     });
   };
   return (
-    <Fragment>
+    <div className="outer-container">
       <NavBar />
         <Switch>
           <Route exact path="/">
@@ -30,7 +30,7 @@ const App = () => {
             <HowToPlay />
           </Route>
         </Switch>
-    </Fragment>
+    </div>
   );
 }
 

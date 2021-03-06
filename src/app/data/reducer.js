@@ -18,22 +18,26 @@ const addScore = (state, { player, numberOfPlayers }) => {
   return {
     ...state,
 
-    players: state.players.map(
-      (person) =>
-        person.id === playerId
-          ? {
-              ...person,
-              score: player.score,
-              scoreHistory: [...person.scoreHistory, player.score >= 500 ? player.lastRoll : 0]
-            }
-          : { ...person }
-      // ? {
-      //     ...player,
-      //     score: player.score,
-      //   }
-      // : { ...player }
+    players: state.players.map((person) =>
+      person.id === playerId
+        ? {
+            ...person,
+            score: player.score,
+            scoreHistory: [
+              ...person.scoreHistory,
+              player.score >= 500 ? player.lastRoll : 0,
+            ],
+          }
+        : { ...person }
     ),
     nextPlayerRoll: numberOfPlayers === playerId ? 1 : playerId + 1,
+  };
+};
+
+const hideAddPlayer = (state, { finsihedAddingPlayers }) => {
+  return {
+    ...state,
+    finsihedAddingPlayers: finsihedAddingPlayers,
   };
 };
 
@@ -43,6 +47,8 @@ const reducer = (state, action) => {
       return addPlayer(state, action);
     case "addScore":
       return addScore(state, action);
+    case "hideAddPlayer":
+      return hideAddPlayer(state, action);
 
     default:
       return state;

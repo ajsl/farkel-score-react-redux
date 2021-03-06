@@ -7,9 +7,9 @@ import {
 
 export const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light nav-bar-custom">
       <a className="navbar-brand" onClick={() => history.push("/")}>
-        Farkel Score
+        Dice Score
       </a>
       <button
         className="navbar-toggler"

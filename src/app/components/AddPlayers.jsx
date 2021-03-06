@@ -6,11 +6,14 @@ class AddPlayers extends Component {
 
     this.state = {
       value: "",
+      finsihedAddingPlayers: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
+
   handleChange(e) {
     this.setState({ value: e.target.value });
   }
@@ -24,48 +27,47 @@ class AddPlayers extends Component {
     });
   }
 
-  render() {
-    const { players } = this.props;
-
-    if (players.length > 1)
-      return (
-        <Fragment>
-          <form className="form-group mt-5" onSubmit={this.handleSubmit}>
-            <label>
-              Enter player name:
-              <input
-                className="form-control"
-                value={this.state.value}
-                type="text"
-                onChange={this.handleChange}
-              />
-            </label>
-            <button type="submit">Add Player</button>
-            
-          </form>
-        </Fragment>
-      );
-    else {
-      return (
-        <Fragment>
-          <h2>Please add players</h2>
-          <form className="form-group mt-5" onSubmit={this.handleSubmit}>
-            <label>
-              Enter player name:
-              <input
-                className="form-control"
-                value={this.state.value}
-                type="text"
-                onChange={this.handleChange}
-              />
-            </label>
-            <button type="submit">Add Player</button>
-            
-          </form>
-        </Fragment>
-      );
+  handleClick(e) {
+    e.preventDefault();
+    if (this.props.players.length > 1) {
+      this.setState({ finsihedAddingPlayers: this.state.finsihedAddingPlayers ? false : true });
+      const data = !this.state.finsihedAddingPlayers;
+      this.props.onClick(data);
     }
   }
+
+  render() {
+    if (this.props.finsihedAddingPlayers) return null;
+    return (
+      <Fragment>
+        <div>
+          <h2>Please add players</h2>
+        </div>
+        <div className="add-players-container">
+          <form className="form-group" onSubmit={this.handleSubmit}>
+            <label>
+              Enter player name:
+              <input
+                className="form-control"
+                value={this.state.value}
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <button className="button-main" type="submit">
+              Add Player
+            </button>
+          </form>
+          <div>
+            <button className="button-main" onClick={this.handleClick}>
+              finished
+            </button>
+          </div>
+        </div>
+      </Fragment>
+    );
+  }
+  // }
 }
 
 export default AddPlayers;
