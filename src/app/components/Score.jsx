@@ -21,7 +21,6 @@ class Score extends Component {
   }
 
   checkScore(score, player) {
-    console.log(player.score);
     const winningScore = 10000;
     const valueOfFirstScore = 500;
     let newScore = +player.score + +score;
@@ -42,7 +41,6 @@ class Score extends Component {
       score: this.checkScore(+this.state.score, player),
       lastRoll: this.state.lastRoll,
     };
-    console.log(updatedPlayer);
     return updatedPlayer;
   }
 

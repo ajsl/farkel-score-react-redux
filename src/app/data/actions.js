@@ -24,3 +24,15 @@ export const hideAddPlayer = (finsihedAddingPlayers) => {
     finsihedAddingPlayers: finsihedAddingPlayers,
   };
 };
+
+export const changeScore = (newScore, oldScore, scoreId, player) => {
+  return {
+    type: "changeScore",
+    newScore: newScore,
+    oldScore: oldScore,
+    scoreId: scoreId,
+    player: player
+
+  }
+
+}

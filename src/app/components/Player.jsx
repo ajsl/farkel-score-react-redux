@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { ScoreHistory } from "./ScoreHistory";
+import ScoreHistory from "../containers/ScoreHistory";
 
 class Player extends Component {
   render() {
@@ -15,7 +15,8 @@ class Player extends Component {
               <h4>{player.name}</h4>
             </div>
             <div className="card-body">Score: {player.score}</div>
-            <ScoreHistory key={player.id} scoreHistory={player.scoreHistory}/>
+            <ScoreHistory key={player.id} player={player}/>
+            {/* <ScoreHistory /> */}
           </div>
         </Fragment>
       );

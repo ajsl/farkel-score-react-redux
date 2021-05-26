@@ -41,6 +41,27 @@ const hideAddPlayer = (state, { finsihedAddingPlayers }) => {
   };
 };
 
+const changeScore = (state, {newScore, oldScore, scoreId, player}) => {
+  let playerId = +player.id;
+  player.scoreHistory[scoreId] = newScore;
+
+  return {
+    ...state,
+    players: state.players.map((person) =>
+      person.id === playerId
+        ? {
+            ...person,
+            score: player.score + (newScore - oldScore),
+            scoreHistory: [
+              ...player.scoreHistory
+              
+            ],
+          }
+        : { ...person }
+    ),
+  }
+}
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "addPlayer":
@@ -49,6 +70,8 @@ const reducer = (state, action) => {
       return addScore(state, action);
     case "hideAddPlayer":
       return hideAddPlayer(state, action);
+    case "changeScore":
+      return changeScore(state, action);
 
     default:
       return state;

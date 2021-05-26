@@ -60,7 +60,7 @@ class AddPlayers extends Component {
           </form>
           <div>
             <button className="button-main" onClick={this.handleClick}>
-              finished
+              Finished adding players
             </button>
           </div>
         </div>
